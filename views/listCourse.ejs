@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/style2.css">
+<h1>Sites pour les courses</h1>
+<h2>Liste des articles à acheter</h2>
+<ul>
+  <% for(elem of ligne) { %>
+    <li class="<%= elem.purchased !== 0 ? 'crossed' : '' %>">
+      <%= elem.name %> <%= elem.quantity %> -
+       <a href="/delete/<%= elem.id_item %>">Effacer</a> 
+       <% if (elem.purchased === 0) { %>
+        <a href="/bought/<%= elem.id_item %>">Acheté</a>
+      <% } %>
+    </li>
+  <% } %>
+</ul>
+
+<form action="/achat" method="GET">
+  <input type="submit" id="bleu" value="Ajouter un article" />
+</form> 
+
+<!-- Les deux fonctionne ↓↑ -->
+
+<!-- Bouton pour aller vers la page de contenu
+<a href="/achat">
+  <button>Ajouter un article</button>
+</a> -->

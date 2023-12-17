@@ -30,7 +30,7 @@ app.get("/delete/:id", async function (req, res) {
 
 app.get("/bought/:id", async function(req,res){
   const ligne = await course.load({id_item : req.params.id})
-  newligne.purchased = 1
+  ligne.purchased = 1
   await ligne.save()
   res.redirect("/")
 })
